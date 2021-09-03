@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/ffhuo/swaggotest/internal/l/models"
+	"github.com/ffhuo/swaggotest/internal/models"
 	"github.com/ffhuo/swaggotest/internal/render"
 	"golang.org/x/tools/imports"
 )

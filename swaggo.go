@@ -1,8 +1,6 @@
 package swaggo
 
 import (
-	"billing/common"
-
 	"github.com/pkg/errors"
 )
 
