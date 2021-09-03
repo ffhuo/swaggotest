@@ -1,8 +1,9 @@
 package swaggo
 
 import (
-	"encoding/json"
 	"testing"
+
+	"github.com/ffhuo/swaggotest/internal/models"
 )
 
 func TestReadDoc(t *testing.T) {
@@ -12,7 +13,7 @@ func TestReadDoc(t *testing.T) {
 	tests := []struct {
 		name    string
 		args    args
-		want    *SwaggerData
+		want    *models.SwaggerData
 		wantErr bool
 	}{
 		{
@@ -24,34 +25,13 @@ func TestReadDoc(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := ReadDoc(tt.args.fileName)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ReadDoc() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			b, _ := json.Marshal(got)
-			t.Errorf("ReadDoc() = %s, want %v", string(b), tt.want)
-		})
-	}
-}
-
-func Test_ls(t *testing.T) {
-	type args struct {
-		a int
-		b int
-	}
-	tests := []struct {
-		name string
-		args args
-		want int
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := ls(tt.args.a, tt.args.b); got != tt.want {
-				t.Errorf("ls() = %v, want %v", got, tt.want)
-			}
+			// got, err := ReadDoc(tt.args.fileName)
+			// if (err != nil) != tt.wantErr {
+			// 	t.Errorf("ReadDoc() error = %v, wantErr %v", err, tt.wantErr)
+			// 	return
+			// }
+			// b, _ := json.Marshal(got)
+			// t.Errorf("ReadDoc() = %s, want %v", string(b), tt.want)
 		})
 	}
 }

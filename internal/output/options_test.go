@@ -57,8 +57,8 @@ func TestOptions_Process(t *testing.T) {
 				Name: "",
 				Type: &models.Expression{
 					Value:      "int",
-					IsStar:     false,
-					IsVariadic: false,
+					IsStar:     true,
+					IsVariadic: true,
 					IsWriter:   false,
 					Underlying: "",
 				},
