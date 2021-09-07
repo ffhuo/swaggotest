@@ -25,9 +25,45 @@ func TestOptions_Process(t *testing.T) {
 		funcs []*models.Function
 	}
 
+	// receiver := new(models.Receiver)
+	// receiver.Field = new(models.Field)
+	// receiver.Name = ""
+	// receiver.Type = &models.Expression{
+	// 	Value:      "AccountDiscountForm",
+	// 	IsStar:     true,
+	// 	IsVariadic: false,
+	// 	IsWriter:   false,
+	// 	Underlying: "",
+	// }
+	// receiver.Fields = []*models.Field{
+	// 	{
+	// 		Name: "aa",
+	// 		Type: &models.Expression{
+	// 			Value:      "int",
+	// 			IsStar:     false,
+	// 			IsVariadic: false,
+	// 			IsWriter:   false,
+	// 			Underlying: "",
+	// 		},
+	// 		Index: 0,
+	// 	},
+	// 	{
+	// 		Name: "bb",
+	// 		Type: &models.Expression{
+	// 			Value:      "int",
+	// 			IsStar:     false,
+	// 			IsVariadic: false,
+	// 			IsWriter:   false,
+	// 			Underlying: "",
+	// 		},
+	// 		Index: 0,
+	// 	},
+	// }
+
 	funcSetting := &models.Function{
 		Name:       "ls",
 		IsExported: false,
+		// Receiver:   receiver,
 		Parameters: []*models.Field{
 			{
 				Name: "a",
@@ -47,9 +83,20 @@ func TestOptions_Process(t *testing.T) {
 					IsStar:     false,
 					IsVariadic: false,
 					IsWriter:   false,
+					Underlying: "fields",
+				},
+				Index: 1,
+			},
+			{
+				Name: "form",
+				Type: &models.Expression{
+					Value:      "int",
+					IsStar:     false,
+					IsVariadic: false,
+					IsWriter:   false,
 					Underlying: "",
 				},
-				Index: 0,
+				Index: 2,
 			},
 		},
 		Results: []*models.Field{

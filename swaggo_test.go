@@ -1,37 +1,40 @@
 package swaggo
 
 import (
+	"reflect"
 	"testing"
-
-	"github.com/ffhuo/swaggotest/internal/models"
 )
 
-func TestReadDoc(t *testing.T) {
+func TestGenerateTests(t *testing.T) {
 	type args struct {
-		fileName string
+		opt *Options
 	}
 	tests := []struct {
 		name    string
 		args    args
-		want    *models.SwaggerData
+		want    []*GeneratedTest
 		wantErr bool
 	}{
 		{
-			name: "test_read_swag_doc",
+			name: "test_option",
 			args: args{
-				fileName: "../swagger.json",
+				opt: &Options{
+					Path: "./swagger.json",
+				},
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			// got, err := ReadDoc(tt.args.fileName)
-			// if (err != nil) != tt.wantErr {
-			// 	t.Errorf("ReadDoc() error = %v, wantErr %v", err, tt.wantErr)
-			// 	return
-			// }
-			// b, _ := json.Marshal(got)
-			// t.Errorf("ReadDoc() = %s, want %v", string(b), tt.want)
+			got, err := GenerateTests(tt.args.opt)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("GenerateTests() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			t.Logf("%s", string(got[0].Output))
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GenerateTests() = %v, want %v", got, tt.want)
+			}
 		})
 	}
 }

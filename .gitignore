@@ -8,6 +8,7 @@
 *.so
 *.dylib
 main
+*.sum
 
 
 # Test binary, build with `go test -c`
@@ -19,7 +20,6 @@ main
 ### Go Patch ###
 vendor/*
 !vendor/vendor.json
-.idea/
 bin
-go.sum
 *.DS_Store
+swagger.json
